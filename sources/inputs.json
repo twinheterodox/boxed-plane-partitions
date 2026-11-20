@@ -1,0 +1,47 @@
+{
+  "scope": "Selected sources for the questions and mathematical inputs. The manuscript contains the full bibliography.",
+  "sources": [
+    {
+      "author": "Greg Kuperberg",
+      "work": "An exploration of the permanent-determinant method",
+      "location": "Question 2",
+      "use": "The question about the group associated with a box.",
+      "url": "https://doi.org/10.37236/1384"
+    },
+    {
+      "author": "James Propp",
+      "work": "Enumeration of matchings: problems and progress",
+      "location": "Problem 5",
+      "use": "The tiling presentation and examples of boxes with different groups.",
+      "url": "https://arxiv.org/abs/math/9904150"
+    },
+    {
+      "author": "N. Conlon",
+      "work": "On plane partitions and Kasteleyn cokernels",
+      "location": "Section 7",
+      "use": "The conjecture classifying boxes with cyclic tiling groups.",
+      "url": "https://web.archive.org/web/20220629185444id_/https://reu.math.ucdavis.edu/application/files/8416/5146/0704/conlon-report.pdf"
+    },
+    {
+      "author": "Greg Kuperberg",
+      "work": "Kasteleyn cokernels",
+      "location": "Theorem 14",
+      "use": "Stable equivalence of the box presentations.",
+      "url": "https://doi.org/10.37236/1645"
+    },
+    {
+      "author": "P. A. MacMahon",
+      "work": "Combinatory Analysis, volume II",
+      "location": "Section 429",
+      "use": "The volume generating function for stacks of cubes in a box.",
+      "url": "https://archive.org/details/combinatoryanaly02macmuoft/page/182/mode/2up"
+    },
+    {
+      "authors": ["Holger Brenner", "Almar Kaid"],
+      "work": "A note on the weak Lefschetz property of monomial complete intersections in positive characteristic",
+      "location": "Theorem 2.3",
+      "use": "The form of C. Han’s syzygy-gap theorem used to compute the rank in positive characteristic.",
+      "url": "https://arxiv.org/abs/1003.0824"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "work": "Boxes with cyclic tiling groups have one layer or size 2 × 2 × 4",
+  "reviewed_version": "Illustrated draft of 19 November 2026, before the final exposition revisions.",
+  "reviewer": "A separate AI model independently reviewed the mathematics and exposition and wrote its own computational checks.",
+  "conclusion": "The auditor found no mathematical gap in the proofs in the reviewed draft.",
+  "proofs_checked": [
+    "The root-of-unity rank argument and the Smith factors of the volume-weighted Carlitz matrix.",
+    "The cofactor bound and the classification of boxes with cyclic tiling groups.",
+    "The modular rank formula, its consequences for generators and primary groups, and the integral ideal of a consecutive interval of Gaussian binomial coefficients."
+  ],
+  "independent_computations": "The auditor checked all 453 positive-size polynomial minors across nine matrices, 2,275 interval and prime pairs, and integer Smith forms for the 364 sorted boxes with all sides at most 12 and eleven additional specified cases. Its 2,687 box and prime comparisons included 2,615 with at most two active prime powers.",
+  "exposition": "The auditor assessed how the tiling group is introduced, how the examples explain the weighted matrix, and how the general generator formula answers the opening question.",
+  "inherited_inputs": "The audit used the classical enumeration, tiling determinant, stable equivalence, and syzygy-gap results as literature inputs.",
+  "independent_program": "checks/independent-checks.py"
+}

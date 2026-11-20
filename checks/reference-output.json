@@ -1,0 +1,23 @@
+{
+  "cofactor_summary": "PASS  8 boxes, 65 unsigned cofactors in Z[q]",
+  "independent_audit": [
+    "small cube family (3, 3, 3) 980 840",
+    "small cube family (3, 3, 4) 4116 2520",
+    "small cube family (3, 3, 5) 14112 2520",
+    "Section 6 table [(Fraction(588, 5), 60, Fraction(3528, 5), 420), (Fraction(924, 1), 420, Fraction(13068, 1), 2520), (Fraction(56628, 7), 840, Fraction(2024451, 7), 27720)]",
+    "Three-level example (4, 13, 18) 2-primary orders including unit [1, 2, 8, 8]",
+    "minors (1, 1, 1) 1 integer Smith factors (2,)",
+    "minors (1, 4, 5) 1 integer Smith factors (126,)",
+    "minors (3, 1, 2) 19 integer Smith factors (1, 1, 10)",
+    "minors (3, 2, 1) 19 integer Smith factors (1, 1, 10)",
+    "minors (2, 2, 2) 5 integer Smith factors (2, 10)",
+    "minors (3, 4, 3) 19 integer Smith factors (7, 14, 42)",
+    "minors (4, 3, 5) 69 integer Smith factors (1, 6, 42, 462)",
+    "minors (4, 4, 4) 69 integer Smith factors (2, 6, 42, 462)",
+    "minors (5, 3, 3) 251 integer Smith factors (1, 1, 2, 42, 168)",
+    "all polynomial minors 453",
+    "interval/prime comparisons 2275",
+    "integer Smith forms 375 box/prime comparisons 2687 with at most two active powers 2615",
+    "All checks passed."
+  ]
+}

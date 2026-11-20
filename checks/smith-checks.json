@@ -1,0 +1,174 @@
+{
+  "method": "gcd of all minors of each size in QQ[q], discarding units of the Laurent ring",
+  "boxes": [
+    {
+      "box": [
+        1,
+        1,
+        1
+      ],
+      "minors": 1,
+      "macmahon_cyclotomic_multiplicities": {
+        "2": 1
+      },
+      "ordinary_smith_factors": [
+        2
+      ]
+    },
+    {
+      "box": [
+        1,
+        4,
+        5
+      ],
+      "minors": 1,
+      "macmahon_cyclotomic_multiplicities": {
+        "3": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1
+      },
+      "ordinary_smith_factors": [
+        126
+      ]
+    },
+    {
+      "box": [
+        3,
+        1,
+        2
+      ],
+      "minors": 19,
+      "macmahon_cyclotomic_multiplicities": {
+        "4": 1,
+        "5": 1
+      },
+      "ordinary_smith_factors": [
+        1,
+        1,
+        10
+      ]
+    },
+    {
+      "box": [
+        3,
+        2,
+        1
+      ],
+      "minors": 19,
+      "macmahon_cyclotomic_multiplicities": {
+        "4": 1,
+        "5": 1
+      },
+      "ordinary_smith_factors": [
+        1,
+        1,
+        10
+      ]
+    },
+    {
+      "box": [
+        2,
+        2,
+        2
+      ],
+      "minors": 5,
+      "macmahon_cyclotomic_multiplicities": {
+        "4": 2,
+        "5": 1
+      },
+      "ordinary_smith_factors": [
+        2,
+        10
+      ]
+    },
+    {
+      "box": [
+        3,
+        4,
+        3
+      ],
+      "minors": 19,
+      "macmahon_cyclotomic_multiplicities": {
+        "6": 2,
+        "7": 3,
+        "8": 2,
+        "9": 1
+      },
+      "ordinary_smith_factors": [
+        7,
+        14,
+        42
+      ]
+    },
+    {
+      "box": [
+        4,
+        3,
+        5
+      ],
+      "minors": 69,
+      "macmahon_cyclotomic_multiplicities": {
+        "7": 2,
+        "8": 3,
+        "9": 3,
+        "10": 2,
+        "11": 1
+      },
+      "ordinary_smith_factors": [
+        1,
+        6,
+        42,
+        462
+      ]
+    },
+    {
+      "box": [
+        4,
+        4,
+        4
+      ],
+      "minors": 69,
+      "macmahon_cyclotomic_multiplicities": {
+        "7": 2,
+        "8": 4,
+        "9": 3,
+        "10": 2,
+        "11": 1
+      },
+      "ordinary_smith_factors": [
+        2,
+        6,
+        42,
+        462
+      ]
+    },
+    {
+      "box": [
+        5,
+        3,
+        3
+      ],
+      "minors": 251,
+      "macmahon_cyclotomic_multiplicities": {
+        "2": 1,
+        "4": 1,
+        "6": 1,
+        "7": 2,
+        "8": 3,
+        "9": 2,
+        "10": 1
+      },
+      "ordinary_smith_factors": [
+        1,
+        1,
+        2,
+        42,
+        168
+      ]
+    }
+  ],
+  "minors_total": 453,
+  "status": "PASS"
+}

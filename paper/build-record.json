@@ -1,0 +1,25 @@
+{
+  "source": "paper/boxed-plane-partitions.tex",
+  "reader_pdf": "output/pdf/boxed-plane-partitions.pdf",
+  "build_command": "python3 tools/build_paper.py",
+  "latex_engine": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian)",
+  "pages": 13,
+  "figures_in_the_manuscript": 5,
+  "unresolved_references": false,
+  "overfull_boxes": false,
+  "independent_rebuild_comparison": {
+    "all_page_text_matches": true,
+    "all_page_renders_match_at_dpi": 96,
+    "link_targets_and_positions_match": true,
+    "links": {
+      "cross_reference": 44,
+      "citation": 26,
+      "external_url": 13
+    },
+    "named_destinations": 60
+  },
+  "editable_figure_sources": {
+    "standalone_plates_rebuilt": 3,
+    "all_plate_pdfs_byte_identical": true
+  }
+}

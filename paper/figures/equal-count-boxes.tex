@@ -1,0 +1,148 @@
+% Compile with pdfLaTeX from the figures directory.
+\documentclass[tikz,border=3pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\pdfinfo{/Title (Two boxes with twenty stacks) /Author (twinheterodox)}
+\input{box-and-labels.tex}
+
+% Each example is symmetric in the floor coordinates. Transposition therefore
+% gives the whole list of y-faces from the list of x-faces.
+\newcommand{\StackFaces}[2]{%
+  \foreach \i/\j/\k in {#1}{\TopTile{\i}{\j}{\k}}
+  \foreach \i/\j/\k in {#2}{\XTile{\i}{\j}{\k}\YTile{\j}{\i}{\k}}}
+\newcommand{\FlatStack}{%
+  \StackFaces{0/0/1,1/0/1,2/0/1,0/1/1,1/1/1,0/2/1}%
+             {3/0/0,2/1/0,1/2/0}}
+\newcommand{\CubeStack}{%
+  \StackFaces{0/0/2,1/0/1,0/1/1}{1/0/1,2/0/0,1/1/0}}
+
+% The remaining visible squares of the floor and back walls complete the
+% hexagon. In the flat example the stack already covers both back walls.
+\newcommand{\FlatCorner}{\TopTile{2}{1}{0}\TopTile{1}{2}{0}\TopTile{2}{2}{0}}
+\newcommand{\CubeCorner}{\TopTile{1}{1}{0}\XTile{0}{1}{1}\YTile{1}{0}{1}}
+\definecolor{upperink}{HTML}{844715}
+\definecolor{lowerink}{HTML}{6A3E73}
+\tikzset{
+  slice/.style={line width=1.05pt,preaction={draw=white,solid,line width=2.05pt}},
+  endlabel/.style={font=\normalsize,inner sep=2.4pt}
+}
+% Slice at the middle of each layer. The parts on exposed box walls continue
+% the boundary of the occupied cells out to the two fixed endpoints.
+\newcommand{\FlatSlice}{%
+  \draw[slice,upperink] (0,3,.5)--(1,3,.5)--(1,2,.5)--(2,2,.5)--
+                        (2,1,.5)--(3,1,.5)--(3,0,.5);
+  \fill[upperink] (0,3,.5) circle[radius=.69mm] node[left,endlabel] {\(x\)};
+  \fill[upperink] (3,0,.5) circle[radius=.69mm] node[right,endlabel] {\(A\)};}
+\newcommand{\CubeSlices}{%
+  \draw[slice,lowerink,dash pattern=on 2.5pt off 1.1pt]
+    (0,2,.5)--(1,2,.5)--(1,1,.5)--(2,1,.5)--(2,0,.5);
+  \draw[slice,upperink]
+    (0,2,1.5)--(0,1,1.5)--(1,1,1.5)--(1,0,1.5)--(2,0,1.5);
+  \fill[upperink] (0,2,1.5) circle[radius=.69mm] node[left,endlabel] {\(x\)};
+  \fill[upperink] (2,0,1.5) circle[radius=.69mm] node[right,endlabel] {\(A\)};
+  \fill[lowerink] (0,2,.5) circle[radius=.69mm] node[left,endlabel] {\(y\)};
+  \fill[lowerink] (2,0,.5) circle[radius=.69mm] node[right,endlabel] {\(B\)};}
+
+% The vertices of the path grid are midpoints of vertical unit edges.
+% In these projected coordinates a step to the right adds (1,1) or (1,-1).
+\newcommand{\PossibleSteps}[2]{%
+  \begin{scope}[x={(.49cm,0cm)},y={(0cm,.2829cm)}]
+    \clip ({-#1},{1-#1})--(0,{1-2*#1})--(#1,{1-#1})--
+          (#1,{2*#2-#1-1})--(0,{2*#2-1})--({-#1},{2*#2-#1-1})--cycle;
+    \pgfmathtruncatemacro{\lastLine}{#1+#2-1}
+    \foreach \lineIndex in {0,...,\lastLine}{
+      \pgfmathtruncatemacro{\intercept}{1-2*#1+2*\lineIndex}
+      \draw[boxink!64,line width=.43pt,dash pattern=on .45pt off 1.43pt]
+        ({-#1},{\intercept-#1})--(#1,{\intercept+#1})
+        ({-#1},{\intercept+#1})--(#1,{\intercept-#1});}
+  \end{scope}}
+
+\newcommand{\LozengeView}[5]{% floor side, height, cube faces, bare faces, layer outlines
+  \pgfmathsetmacro{\tileY}{.2829*(#1-#2)}
+  \begin{scope}[shift={(1.55,\tileY)},x={(.49cm,-.2829cm)},
+                y={(-.49cm,-.2829cm)},z={(0cm,.5658cm)}]
+    #3
+    \begin{scope}
+      \colorlet{boxtop}{boxtop!20!white}
+      \colorlet{boxleft}{boxleft!37!white}
+      \colorlet{boxright}{boxright!37!white}
+      #4
+    \end{scope}
+    \PossibleSteps{#1}{#2}
+    \draw[boxink,line width=.78pt] (0,0,#2)--(#1,0,#2)--(#1,0,0)--
+      (#1,#1,0)--(0,#1,0)--(0,#1,#2)--cycle;
+    #5
+  \end{scope}}
+
+\definecolor{stepink}{HTML}{286B73}
+\tikzset{
+  heading/.style={font=\sffamily\small\bfseries,inner sep=1pt},
+  detail/.style={font=\sffamily\small,inner sep=1pt},
+  residue/.style={font=\normalsize,inner xsep=2pt,inner ysep=1.5pt},
+  parity/.style={font=\sffamily\small,draw=boxink!46,rounded corners=2pt,
+                 fill=white,inner xsep=3.5pt,inner ysep=2.2pt},
+  add/.style={draw=stepink,line width=.66pt,-{Stealth[length=1.5mm,width=1.1mm]}},
+  parity move/.style={line width=.65pt,
+                 {Stealth[length=1.35mm,width=1mm]}-{Stealth[length=1.35mm,width=1mm]}}
+}
+
+\begin{document}
+\begin{tikzpicture}[text=boxink,line join=round,line cap=round]
+  \node[heading] at (1.55,1.46) {\(3\times3\times1\) box};
+  \LozengeView{3}{1}{\FlatStack}{\FlatCorner}{\FlatSlice}
+  \node[heading] at (6.46,1.46) {Number of single paths};
+  \node[detail] at (6.95,.84) {to \(A\)};
+  \node[detail] at (5.25,.28) {from \(x\)};
+  \draw[boxgrid,line width=.47pt] (6.03,.59)--(7.85,.59);
+  \node at (6.95,.22) {\(\binom63=20\)};
+  \node at (6.95,-.41) {\(20x=0\)};
+
+  \node[heading] at (12.41,1.46) {One generator suffices};
+  \node[residue] (zero) at (9.86,.31) {\(0\)};
+  \node[residue] (one) at (11.06,.31) {\(x\)};
+  \node[residue] (two) at (12.28,.31) {\(2x\)};
+  \node[residue] (etc) at (13.53,.31) {\(\cdots\)};
+  \node[residue] (last) at (14.92,.31) {\(19x\)};
+  \foreach \u/\v in {zero/one,one/two,two/etc,etc/last}
+     \draw[add] (\u.east)--(\v.west);
+  \draw[add,rounded corners=5pt] (last.south)--(14.92,-.36)--
+                      (9.86,-.36)--(zero.south);
+  \node[detail,text=stepink] at (12.4,-.70) {Adding \(x\) visits all twenty elements.};
+
+  \draw[boxgrid!70,line width=.35pt] (-.20,-1.37)--(15.48,-1.37);
+  \begin{scope}[shift={(0,-3.07)}]
+    \node[heading] at (1.55,1.39) {\(2\times2\times2\) box};
+    \LozengeView{2}{2}{\CubeStack}{\CubeCorner}{\CubeSlices}
+    \node[heading] at (6.46,1.39) {Number of single paths};
+    \node[detail] at (6.03,.91) {to \(A\)};
+    \node[detail] at (8.04,.91) {to \(B\)};
+    \draw[boxgrid,line width=.47pt] (5.14,.68)--(8.91,.68);
+    \node[detail] at (4.60,.32) {from \(x\)};
+    \node[detail] at (4.60,-.24) {from \(y\)};
+    \node at (6.03,.32) {\(\binom42=6\)}; \node at (8.04,.32) {\(\binom41=4\)};
+    \node at (6.03,-.24) {\(\binom43=4\)}; \node at (8.04,-.24) {\(\binom42=6\)};
+    \draw[boxgrid,line width=.47pt] (5.14,-.57)--(8.91,-.57);
+    \node[font=\small] at (6.03,-.91) {\(6x+4y=0\)};
+    \node[font=\small] at (8.04,-.91) {\(4x+6y=0\)};
+    \node[heading] at (12.42,1.39) {Two generators are required};
+    \node[detail] at (12.42,.97) {Coefficient parities in \(mx+ny\)};
+    \node[parity,fill=boxtop!24] (ee) at (10.91,-.34) {\(m\) even, \(n\) even};
+    \node[parity] (oe) at (13.93,-.34) {\(m\) odd, \(n\) even};
+    \node[parity] (eo) at (10.91,.50) {\(m\) even, \(n\) odd};
+    \node[parity] (oo) at (13.93,.50) {\(m\) odd, \(n\) odd};
+    \draw[parity move,upperink] (eo.east)--(oo.west);
+    \draw[parity move,upperink] (ee.east)--node[above,inner sep=1.4pt]
+      {\(+x\)}(oe.west);
+    \draw[parity move,lowerink] (ee.north)--node[left,inner sep=1.5pt]
+      {\(+y\)}(eo.south);
+    \draw[parity move,lowerink] (oe.north)--(oo.south);
+    \node[detail,align=center] at (12.42,-1.13)
+      {\(2g\) has even coefficients for every \(g\).\\
+       Multiples of \(g\) reach at most two pairs.};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

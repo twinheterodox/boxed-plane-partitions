@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite the paper."
+title: "Boxes with cyclic tiling groups have one layer or size 2 × 2 × 4"
+type: software
+authors:
+  - name: twinheterodox
+repository-code: "https://github.com/twinheterodox/boxed-plane-partitions"
+license: Apache-2.0
+preferred-citation:
+  type: report
+  title: "Boxes with cyclic tiling groups have one layer or size 2 × 2 × 4"
+  authors:
+    - name: twinheterodox
+  year: 2026

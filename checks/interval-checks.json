@@ -1,0 +1,16 @@
+{
+  "method": "compute the whole polynomial gcd before and after reduction mod p",
+  "all_nonempty_intervals_in_rows": [
+    0,
+    12
+  ],
+  "intervals_per_prime": {
+    "2": 455,
+    "3": 455,
+    "5": 455,
+    "7": 455,
+    "11": 455
+  },
+  "total": 2275,
+  "status": "PASS"
+}
