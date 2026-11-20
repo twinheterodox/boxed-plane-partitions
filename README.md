@@ -1,12 +1,14 @@
 # Boxes with cyclic tiling groups have one layer or size 2 × 2 × 4
 
+![Figure 1. The column heights 4, 2, 1, and 0 specify a stack of seven cubes, shown alongside its lozenge tiling.](paper/figures/stack-and-tiling-preview.png)
+
+*Figure 1. One of the 105 possible stacks in the exceptional 2 × 2 × 4 box.*
+
 There are twenty ways to stack cubes in a one-layer box with a 3 × 3 floor and twenty ways in a 2 × 2 × 2 box. The tiling groups of these boxes both have order twenty. One generator suffices for the flat box, while the other group needs two. This paper proves Conlon’s conjecture that a box has a cyclic tiling group exactly when it has one layer or its dimensions are 2 × 2 × 4 in some order.
 
 For every box, the paper also gives the minimum number of generators. It is the greatest multiplicity of a cyclotomic factor of prime-power index in MacMahon’s volume polynomial. The paper determines all Smith factors of the weighted Carlitz matrix over the rational Laurent polynomial ring.
 
 [Read the illustrated paper](output/pdf/boxed-plane-partitions.pdf) · [LaTeX source](paper/boxed-plane-partitions.tex)
-
-![The twenty stacks in the 2 × 2 × 2 box, arranged by volume from zero to eight cubes.](paper/figures/volume-stacks-preview.png)
 
 ## Reproduce the computations
 
